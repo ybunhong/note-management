@@ -1,7 +1,7 @@
-import NotePage from "./pages/note-page";
+import Router from "./routes";
 
 function App() {
-  return (<NotePage />)
+  return <Router/>
 }
 
 export default App
