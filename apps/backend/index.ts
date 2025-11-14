@@ -1,4 +1,5 @@
 import express from "express";
+import client from "./db/db"; // this is the database connection
 
 const app = express();
 const PORT = 3000;
@@ -8,7 +9,10 @@ app.get("/", (req, res) => {
 });
 
 app.get("/notes", (req, res) => {
-    res.send("Hello World!");
+    // this is the database query
+    client.query("SELECT * FROM users").then((result) => {
+        res.send(result.rows);
+    });
 });
 
 app.listen(PORT, () => {
