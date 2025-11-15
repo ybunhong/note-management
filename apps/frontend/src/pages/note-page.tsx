@@ -2,6 +2,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import Typography from "@mui/material/Typography";
+import axios from "axios";
 
 export default function NotePage() {
     const [fullName, setFullName] = useState("");
@@ -9,16 +10,7 @@ export default function NotePage() {
 
     const onSubmit = async (e: any) => {
         e.preventDefault(); //prevent reloading page        
-        const res = await fetch("http://localhost:3000/users",{
-            method:"POST",
-            body:JSON.stringify({fullName,gender}),
-            headers:{
-                "Content-Type":"application/json"
-            }
-        })
-        if (res.ok){
-            return console.log((res.status))
-        }
+        const res = await axios.post("http://localhost:3000/users",{fullName,gender})
         console.log(res);
     };
 

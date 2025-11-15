@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";  
 import NotePage from "../pages/note-page";
+import Notes from "../pages/notes"
 
 export const mainRoutes =[
     {
@@ -13,6 +14,10 @@ export const mainRoutes =[
             {
                 path:"404",
                 element:<div>404 Not Found</div>
+            },
+            {
+                path:"/",
+                element:<Notes />
             }
         ]
     }
