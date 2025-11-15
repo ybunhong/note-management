@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import axios from "axios";
 
 export default function NotePage() {
+  const [id, setId] = useState("");
   const [fullName, setFullName] = useState("");
   const [gender, setGender] = useState("");
 
@@ -14,6 +15,12 @@ export default function NotePage() {
       fullName,
       gender,
     });
+    console.log(res);
+  };
+
+  const onDetele = async (e: any) => {
+    e.preventDefault();
+    const res = await axios.delete("http://localhost:3000/users/" + id); //remember this
     console.log(res);
   };
 
@@ -40,6 +47,16 @@ export default function NotePage() {
       </form>
       <Typography>{fullName || "justname"}</Typography>
       <Typography>{gender || "justgender"}</Typography>
+
+      <form onSubmit={onDetele}>
+        <input
+          type="text"
+          placeholder="Id"
+          value={id}
+          onChange={(e) => setId(e.target.value)}
+        />
+        <button type="submit">Delete</button>
+      </form>
     </Container>
   );
 }

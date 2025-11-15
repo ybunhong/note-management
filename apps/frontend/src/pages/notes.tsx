@@ -19,9 +19,10 @@ export default function Notes() {
 
   return (
     <>
-      {users.map((user: any, index: number) => (
+      {users.map((user: any, id: number) => (
         <>
-          <Box key={index}>
+          <Box key={id}>
+            <Typography variant="h4">{id}</Typography>
             <Typography variant="h4">{user.fullName}</Typography>
             <Typography variant="h4">{user.gender}</Typography>
           </Box>
