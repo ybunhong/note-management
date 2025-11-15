@@ -1,10 +1,12 @@
 import express from "express";
 import client from "./db/db"; // this is the database connection
 import middleware from "./middleware/middleware";
+import cors from "cors";
 
 const app = express();
 const PORT = 3000;
 
+app.use(cors());
 app.use(middleware);
 
 app.get("/", (req, res) => {
