@@ -5,7 +5,7 @@ import IconButton from "@mui/material/IconButton";
 import Facebook from "@mui/icons-material/Facebook";
 import Twitter from "@mui/icons-material/Twitter";
 import Instagram from "@mui/icons-material/Instagram";
-import Linkedin from "@mui/icons-material/Linkedin";
+import LinkedIn from "@mui/icons-material/LinkedIn";
 
 export default function Footer() {
   const socialIcons = [
