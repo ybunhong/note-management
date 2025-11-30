@@ -1,0 +1,28 @@
+name: frontend-deployment
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    container: node:20
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: install dependencies
+        run: npm ci
+        working-directory: ./apps/frontend
+
+      - name: Build
+        run: npm run build
+        working-directory: ./apps/frontend
+
+      - name: deploy frontend
+        run: curl -X POST "$FRONTEND_DEPLOY_HOOK" # SECRET in render
+
+    env:
+      FRONTEND_DEPLOY_HOOK: ${{ secrets.FRONTEND_DEPLOY_HOOK }}
