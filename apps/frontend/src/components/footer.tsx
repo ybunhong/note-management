@@ -26,7 +26,7 @@ export default function Footer() {
     },
     {
       name: "Linkedin",
-      icon: <Linkedin />,
+      icon: <LinkedIn />,
       path: "https://www.linkedin.com/in/ybunhonggg/",
     },
   ];
